@@ -79,7 +79,7 @@ def polygonTransform(FeatureClass):
         in_table=FeatureClass,
         field="MERGE",
         expression="1",
-        expression_type="VB",
+        expression_type="PYTHON3",
         code_block="")
 
     print("Field Calculated")
@@ -193,7 +193,7 @@ def polylineTransform(FeatureClass):
         in_table=buffer,
         field="MERGE",
         expression="1",
-        expression_type="VB",
+        expression_type="PYTHON3",
         code_block="")
 
     print("Field Calculated")
@@ -261,7 +261,7 @@ def prepJSON(Shapefile):
         in_table=ShapefileAll,
         field="MERGE",
         expression="1",
-        expression_type="VB",
+        expression_type="PYTHON3",
         code_block="")
 
     print("Field Calculated")
@@ -335,7 +335,7 @@ def prepJSON(Shapefile):
         geoJSON="GEOJSON")
 
     print("ESRI JSON created")
-
+    '''
     arcpy.Delete_management(gdb)
     print("Deleted Geodatabase")
     arcpy.Delete_management(save_path)
@@ -346,14 +346,14 @@ def prepJSON(Shapefile):
     print("Deleted singlepart polygon shapefile")
     arcpy.Delete_management(ShapefileAll)
     print("Deleted master shapefile")
-
+    '''
 
 if __name__ == '__main__':
 
     # set the url that needs to be downloaded
     #
-    url = 'http://ftp.maps.canada.ca/pub/statcan_statcan/Census_Recensement/census_subdivisions_2016/census_subdivisions_2016_en.gdb.zip'
-    # url = 'https://ftp.maps.canada.ca/pub/nrcan_rncan/Aboriginal-languages_Langue-autochtone/indigenous_place_names_2019/indigenous_place_names.gdb.zip'
+    # url = 'http://ftp.maps.canada.ca/pub/statcan_statcan/Census_Recensement/census_subdivisions_2016/census_subdivisions_2016_en.gdb.zip'
+    url = 'https://ftp.maps.canada.ca/pub/nrcan_rncan/Aboriginal-languages_Langue-autochtone/indigenous_place_names_2019/indigenous_place_names.gdb.zip'
 
     # set the path to save the zip file (needs to be dynamic later)
     #
@@ -373,8 +373,8 @@ if __name__ == '__main__':
 
     # set the geodatabasee (this needs to be dynamic in future)
     #
-    # gdb = "C:\TEMP\indigenous_place_names.gdb"
-    gdb = r"C:\TEMP\census_subdivisions_2016_en.gdb"
+    gdb = "C:\TEMP\indigenous_place_names.gdb"
+    # gdb = r"C:\TEMP\census_subdivisions_2016_en.gdb"
     # set the shapefile up for creation where all polygons will be appended
     # also create the polygon
     ShapefileName = "IPN.shp"
