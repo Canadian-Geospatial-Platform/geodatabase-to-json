@@ -164,7 +164,7 @@ def polylineTransform(FeatureClass):
     # run buffer on the feature class to create a polygon feature class
     #
     arcpy.Buffer_analysis(
-        in_features=Shapefile,
+        in_features=FeatureClass,
         out_feature_class=buffer,
         buffer_distance_or_field="5000 Meters",
         line_side="FULL", line_end_type="ROUND",
